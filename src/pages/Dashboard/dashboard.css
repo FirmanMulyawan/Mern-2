@@ -1,0 +1,10 @@
+.wrapper-pieChart {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 50px 0;
+}
+/*# sourceMappingURL=dashboard.css.map */

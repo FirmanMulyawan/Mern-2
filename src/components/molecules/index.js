@@ -1,5 +1,6 @@
 import Header from './Header'
 import Footer from './Footer'
-import BlogItem from './BlogItem'
+import PieChart from './PieChart'
+import LineChart from './LineChart'
 
-export { Header, Footer, BlogItem }
+export { Header, Footer, PieChart, LineChart }

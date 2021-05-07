@@ -1,0 +1,17 @@
+select {
+  font-size: 16px;
+  color: #2d2d2d;
+  cursor: pointer;
+}
+
+select:hover,
+select:focus {
+  color: #c0392b;
+}
+
+select option {
+  font-size: 20px;
+  color: #2d2d2d;
+  cursor: pointer;
+}
+/*# sourceMappingURL=dropdown.css.map */

@@ -1,0 +1,55 @@
+.footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #67b35c;
+  padding: 20px 40px;
+}
+
+.footer .logo {
+  width: 70px;
+  height: 70px;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.footer .social-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.footer .social-wrapper .icon-wrapper {
+  background-color: white;
+  padding: 8px;
+  border-radius: 50%;
+  margin: 0px 10px;
+}
+
+.footer .social-wrapper .icon-wrapper .icon-medsos {
+  width: 30px;
+  height: 30px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.copyright {
+  background-color: #569e4b;
+  padding: 10px 0;
+}
+
+.copyright p {
+  font-size: 14px;
+  color: white;
+  text-align: center;
+  margin: 0px;
+}
+/*# sourceMappingURL=footer.css.map */
