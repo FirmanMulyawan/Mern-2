@@ -1,8 +1,10 @@
 import React from 'react'
 import { Button, Input, Gap, Dropdown } from '../../components'
 import './edit-data.scss'
+import {useHistory } from 'react-router-dom'
 
 const EditData = () => {
+    const history = useHistory()
     return (
         <div className="wrapper-data">
             <p className='title'>Add / Edit Data</p>
@@ -17,7 +19,7 @@ const EditData = () => {
            <div className='pagination'>
 				<Button title='Save' />
 				<Gap width={500} />
-				<Button title='Cancel' />
+                <Button title='Cancel' onClick={ ()=> history.push('/input-data')}/>
             </div>
             <Gap height={20} />
         </div>
