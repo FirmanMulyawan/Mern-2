@@ -1,8 +1,16 @@
 
 ### `yarn install`
+    yarn install untuk backend
+    cd -> mern-api -> yarn install
 
+    yarn install untuk frontend
+    cd -> yarn install
 ### `yarn start`
+    yarn start untuk backend
+    cd -> mern-api -> yarn start
 
+    yarn install untuk frontend
+    cd -> yarn start
 ### `Axios`
 
 ### `chart.js`
