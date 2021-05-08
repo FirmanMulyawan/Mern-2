@@ -9,7 +9,7 @@ const InputData = () => {
 	const history = useHistory()
 
 	React.useEffect(() => {
-		Axios.get('http://localhost:4000/v1/data/datas')
+		Axios.get('http://localhost:4000/v1/data/datas?page=1&perPage=10')
 			.then(result => {
 				setData(result.data)
 			})

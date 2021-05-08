@@ -9,33 +9,35 @@ const Datatable = ({ data }) => {
     return (
         <table cellPadding={0} cellSpacing={0}>
             <thead>
-                <tr>{data && columns.map(heading => <th>{ heading}</th>)}</tr>
+                <tr>{data && columns.map((heading, index) => <th key={index.toString()}>{ heading}</th>)}</tr>
             </thead>
             <tbody>
                 {   
-                    data?.data?.map((items) => (
-                        <tr>
-                            {columns?.map((col) => {
-                                if (col !== "action") {
-                                return (
-                                        <td>{items[col]}</td>
-                                )   
-                                } else {
-                                    return (
+                    data?.data?.map((items) => {
+                        return(
+                            <tr key={items._id}>
+                                {columns?.map((col, index) => {
+                                    if (col !== "action") {
+                                        return (
+                                            <td key={index.toString()}>{items[col]}</td>
+                                        )
+                                    } else {
+                                        return (
                                         
-                                        <td>
-                                            <div style={{display: 'flex'}}>
-                                                <Link title='Edit' />
-                                                <Gap width={20}/>
-                                            <Link title='Delete' />
-                                            </div>
-                                        </td>
-                                    )
+                                            <td key={index.toString()}>
+                                                <div style={{ display: 'flex' }}>
+                                                    <Link title='Edit' />
+                                                    <Gap width={20} />
+                                                    <Link title='Delete' />
+                                                </div>
+                                            </td>
+                                        )
+                                    }
+                                })
                                 }
-                            })
-                            }
-                        </tr>
-                    )
+                            </tr>
+                        )
+                    }
                     )
                 }
             </tbody>
