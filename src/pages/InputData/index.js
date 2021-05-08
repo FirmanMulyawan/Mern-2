@@ -6,19 +6,17 @@ import Axios from 'axios'
 
 const InputData = () => {
 	const [data, setData] = React.useState([]);
-	const [q, setQ] = React.useState("")
 	const history = useHistory()
 
 	React.useEffect(() => {
 		Axios.get('http://localhost:4000/v1/data/datas')
 			.then(result => {
-				console.log("data api", result.data)
 				setData(result.data)
 			})
 			.catch(err => {
 			console.log('error', err)
 		})
-	}, [])
+	}, [data])
 
 	return (
 		<div className='home-page-wrapper wrapper-data'>
@@ -34,10 +32,11 @@ const InputData = () => {
 				<Gap width={500} />
 				<Button title='Download Data' />
             	</div>
-			<Gap height={20} />
+			<Gap height={50} />
 			<Datatable
 				data={data}
 			/>
+			<Gap height={50} />
 		</div>
 	)
 }
