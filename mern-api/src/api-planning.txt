@@ -1,0 +1,116 @@
+Standar API 
+
+{root.api}/v1/{grouping}/{endpoint} 
+sample: 
+
+http://mern-api.testFirman.com/v1/auth/login 
+
+======================================================================
+Standar Status Respon
+200 - Ok                --> Call API Success
+201 - CREATED           --> Post Success
+400 - BAD REQUEST       --> Error on Client Side (Bisa input yang salah dll)
+401 - UNAUTHORIZED      --> user not authorized to the request 
+403 - FORBIDDEN         --> user not allowed to access
+404 - NOT FOUND         --> Request Endpoint Not Found 
+500 - INTERNAL SERVER ERROR --> Error on Server Side
+502 - BAD GATEWAY       --> Invalid Response From Antoher Request
+======================================================================
+
+GROUP: Auth 
+
+[1] - Register 
+{root.api}/{version}/auth/register
+
+req: 
+{
+    "name": "Testing",
+    "email": "test@gmail.com",
+    "password": "1234"
+}
+
+res:
+{
+    "message": "Register Success",
+    "data": {
+        "id": 1,
+        "name": "Testing",
+        "email": "test@gmail.com",
+        "password": "1234"
+    }
+}
+
+err-response: 
+201 -> Register Berhasil
+400 -> Input yang anda masukkan tidak valid 
+
+==================================================================
+GROUP: Auth
+
+[2] - Login 
+{root.api}/{version}/auth/login
+
+req: 
+{
+    "email": "test@email.com",
+    "password":"1234"
+}
+
+res: 
+{
+    "message": "Login Success",
+    "data": {
+        "uid": 1, 
+        "email": "test@email.com",
+        "token": "JDKei199dk3i"
+    }
+}
+
+err-response:
+200 -> login Berhasil
+400 -> Input yang anda masukkan tidak valid 
+
+===================================================================
+
+GROUP: Data 
+
+[1] - Create Data 
+[POST]: {root.api}/{version}/data/post
+
+req:
+{
+    "noPasien_id": 13232,
+    "tanggal": "12/01/1990",
+    "status": "sembuh",
+    "usia": 17,
+    "author": {
+        "uid": 1,
+            "name": "firman mulyawan",
+    }
+}
+
+res: 
+{
+    "message": "Create Data",
+    "data" {
+        "noPasien_id": 13232,
+        "tanggal": "12/01/1990",
+        "status": "sembuh",
+        "usia": 17,
+        "author": {
+            "uid": 1,
+            "name": "firman mulyawan",
+        }
+    }
+}
+
+err-response:
+200 -> Data Berhasil dibuat
+400 -> Input yang anda masukkan tidak valid 
+
+================================================================
+GROUP: Data 
+
+[2] - Get Data
+[3] - Update Data
+[4] - Delete Data
