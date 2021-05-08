@@ -3,14 +3,24 @@
 
 ### `yarn start`
 
-react-router-dom
+### `Axios`
 
-node-sass
+### `chart.js`
 
-chart.js
+### `node-sass`
 
-react-chartjs-2
+### `react-chartjs-2`
 
-yarn add express
+### `react-router-dom`
 
-yarn add nodemon
+# Back end
+
+### `body-parser`
+
+### `express`
+
+### `express-validator`
+
+### `mongoose`
+
+### `nodemon`
