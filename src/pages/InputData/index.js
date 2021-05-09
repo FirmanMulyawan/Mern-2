@@ -15,11 +15,11 @@ const InputData = (props) => {
 	}, [props.data])
 
 	const handlePrev = () => {
-		setstate(state - 1)
+		setstate(state <= 1 ? 1 : state - 1)
 	}
 
 	const handleNext = () => {
-		setstate(state + 1)
+		setstate(state === props.page.totalPage? props.page.totalPage: state + 1)
 	}
 	return (
 		<div className='home-page-wrapper wrapper-data'>
@@ -43,7 +43,7 @@ const InputData = (props) => {
 			<div className='pagination'>
 				<Button title='prev' onClick={ handlePrev}/>
 				<Gap width={200} />
-				<p className="text-page">1/3</p>
+				<p className="text-page">{props.page.currentPage}/{ props.page.totalPage}</p>
 				<Gap width={200} />
 				<Button title='next' onClick={ handleNext}/>
 			</div>
@@ -53,7 +53,8 @@ const InputData = (props) => {
 }
 
 const mapStateToProps = ({ dataReducer }) => ({
-  data: dataReducer.data,
+	data: dataReducer.data,
+	page: dataReducer.page,
 })
 
 function mapDispatchToProps(dispatch) {

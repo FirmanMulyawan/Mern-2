@@ -4,6 +4,10 @@ import * as types from './types'
 const dataState = {
     data: [],
     name: 'firman',
+    page: {
+    currentPage: 1,
+    totalPage: 1,
+  }
 }
 
 
@@ -21,5 +25,13 @@ export const dataReducer = createReducer(dataState, {
       name: "firman mulyawan",
     }
   },
+    
+  [types.UPDATE_PAGE](state, payload) {
+    return {
+      ...state,
+      page: payload.payload
+    }
+
+    }
 
 })
