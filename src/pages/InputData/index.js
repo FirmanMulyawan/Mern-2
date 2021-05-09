@@ -2,22 +2,25 @@ import React from 'react'
 import { Button, Gap, Input, Dropdown, Datatable } from '../../components'
 import './input-data.scss'
 import { useHistory } from 'react-router-dom'
-import Axios from 'axios'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { actionCreators } from '../../redux'
 
-const InputData = () => {
-	const [data, setData] = React.useState([]);
+const InputData = (props) => {
+	const [state, setstate] = React.useState(1)
 	const history = useHistory()
 
 	React.useEffect(() => {
-		Axios.get('http://localhost:4000/v1/data/datas?page=1&perPage=10')
-			.then(result => {
-				setData(result.data)
-			})
-			.catch(err => {
-			console.log('error', err)
-		})
-	}, [data])
+		props.setData(state)
+	}, [props.data])
 
+	const handlePrev = () => {
+		setstate(state - 1)
+	}
+
+	const handleNext = () => {
+		setstate(state + 1)
+	}
 	return (
 		<div className='home-page-wrapper wrapper-data'>
 				<p className='title'>Input Data</p>
@@ -34,11 +37,32 @@ const InputData = () => {
             	</div>
 			<Gap height={50} />
 			<Datatable
-				data={data}
+				data={props?.data?.data}
 			/>
+			<Gap height={50} />
+			<div className='pagination'>
+				<Button title='prev' onClick={ handlePrev}/>
+				<Gap width={200} />
+				<p className="text-page">1/3</p>
+				<Gap width={200} />
+				<Button title='next' onClick={ handleNext}/>
+			</div>
 			<Gap height={50} />
 		</div>
 	)
 }
 
-export default InputData
+const mapStateToProps = ({ dataReducer }) => ({
+  data: dataReducer.data,
+})
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(
+    {
+      setData: actionCreators.setData,
+    },
+    dispatch,
+  )
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(InputData)
